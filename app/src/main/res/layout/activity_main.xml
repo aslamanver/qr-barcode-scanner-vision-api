@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".MainActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextureView
+            android:id="@+id/texture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/trackBox"
+            android:layout_width="match_parent"
+            android:layout_height="220dp"
+            android:layout_centerInParent="true"
+            android:layout_marginHorizontal="60dp"
+            android:background="@drawable/background_border">
+
+            <RelativeLayout
+                android:id="@+id/midLine"
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="#FF0000" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/rlResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <LinearLayout
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center_horizontal">
+
+                    <Button
+                        android:id="@+id/btnScan"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginBottom="40dp"
+                        android:background="@drawable/button_bg_ripple"
+                        android:drawableLeft="@drawable/ic_photo_camera_black_24dp"
+                        android:drawablePadding="10dp"
+                        android:paddingHorizontal="40dp"
+                        android:text="Scan"
+                        android:textColor="#fff" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/lnFlash"
+                    android:layout_width="0dip"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="0.5"
+                    android:gravity="center_horizontal">
+
+                    <RelativeLayout
+                        android:id="@+id/btnFlash"
+                        android:layout_width="70dp"
+                        android:layout_height="50dp"
+                        android:layout_centerInParent="true"
+                        android:background="@drawable/button_bg_ripple"
+                        android:textColor="#fff">
+
+                        <ImageView
+                            android:id="@+id/imgFlash"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@drawable/ic_flash_auto_black_24dp" />
+
+                    </RelativeLayout>
+
+                </LinearLayout>
+
+            </LinearLayout>
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>

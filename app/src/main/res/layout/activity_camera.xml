@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:context=".CameraActivity">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <TextureView
+            android:id="@+id/texture"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:orientation="vertical" />
+
+        <RelativeLayout
+            android:id="@+id/rlResult"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:paddingTop="10dp"
+            android:paddingBottom="10dp">
+
+
+            <Button
+                android:id="@+id/btnTake"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:background="@drawable/button_bg_ripple"
+                android:drawableLeft="@drawable/ic_photo_camera_black_24dp"
+                android:drawablePadding="10dp"
+                android:paddingHorizontal="40dp"
+                android:text="Scan"
+                android:textColor="#fff" />
+
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+</layout>
