@@ -44,4 +44,7 @@ dependencies {
 
     implementation 'com.journeyapps:zxing-android-embedded:3.3.0@aar'
     implementation 'com.google.zxing:core:3.2.1'
+
+    // PAYable SDK
+    implementation 'com.github.payable:payable-sdk-dev:2.0.3'
 }

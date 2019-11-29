@@ -1,10 +1,7 @@
 package com.payable.scan;
 
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.databinding.DataBindingUtil;
-
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
@@ -17,29 +14,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.util.SparseArray;
-import android.util.TimingLogger;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
 import android.widget.BaseAdapter;
-import android.widget.ListView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import com.google.android.gms.vision.Frame;
 import com.google.android.gms.vision.barcode.Barcode;
 import com.google.android.gms.vision.barcode.BarcodeDetector;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.LuminanceSource;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.NotFoundException;
-import com.google.zxing.RGBLuminanceSource;
-import com.google.zxing.Result;
 import com.google.zxing.ResultPoint;
-import com.google.zxing.common.HybridBinarizer;
-import com.google.zxing.multi.qrcode.QRCodeMultiReader;
-import com.google.zxing.qrcode.QRCodeReader;
-import com.journeyapps.barcodescanner.BarcodeResult;
-import com.journeyapps.barcodescanner.SourceData;
 import com.payable.scan.databinding.ActivityScanBinding;
 import com.payable.scan.databinding.CodeListBinding;
 import com.payable.scan.utils.ExifUtil;
@@ -111,7 +97,7 @@ public class ScanActivity extends AppCompatActivity {
                             }
                         });
 
-                        codeList.add((x + 1) + ". " + barcode.displayValue);
+                        codeList.add(barcode.displayValue);
                     }
 
                     runOnUiThread(new Runnable() {
@@ -178,7 +164,22 @@ public class ScanActivity extends AppCompatActivity {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
 
-            viewHolder.holderBinding.txtName.setText(list.get(position));
+            viewHolder.holderBinding.txtName.setText((position + 1) + ". " + list.get(position));
+
+            viewHolder.holderBinding.mainList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            Intent intent = new Intent(ScanActivity.this, SalesPadActivity.class);
+                            intent.putExtra("scan_code", list.get(position));
+                            startActivity(intent);
+                        }
+                    });
+                }
+            });
 
             return convertView;
         }

@@ -20,4 +20,26 @@
         <item name="android:background">@color/black_overlay</item>
     </style>
 
+    <style name="MyDialogStyle" parent="Theme.AppCompat.DayNight.Dialog.Alert" />
+
+    <style name="alp_toolbar_title">
+
+        <item name="android:textColor">#fff</item>
+        <item name="android:textSize">16dp</item>
+        <item name="android:textStyle">bold</item>
+
+    </style>
+
+    <style name="salespad_btn">
+        <item name="android:textColor">#504D4D</item>
+        <item name="android:textSize">25dp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+
+    <style name="salespad_btn_text_light">
+        <item name="android:textColor">#fff</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textSize">16dp</item>
+    </style>
+
 </resources>
