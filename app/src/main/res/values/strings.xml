@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">PAYable Scan</string>
+    <string name="app_name">PAYableScan</string>
 
     <string name="title_activity_splash">SplashActivity</string>
     <string name="dummy_button">Dummy Button</string>

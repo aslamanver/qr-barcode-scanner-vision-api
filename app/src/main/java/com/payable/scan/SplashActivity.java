@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class SplashActivity extends AppCompatActivity {
@@ -23,6 +24,8 @@ public class SplashActivity extends AppCompatActivity {
 
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_splash);
+
+        ((TextView) findViewById(R.id.txtVersion)).setText("v" + BuildConfig.VERSION_NAME);
     }
 
     private boolean allPermissionsGranted() {
