@@ -61,11 +61,15 @@ public class SalesPadActivity extends Activity implements PayableListener {
                 return false;
             }
         });
-
-        binding.title.setText(scanCode);
     }
 
     private void startSale() {
+
+        if (saleAmount < 1) {
+            Toast.makeText(this, "Please enter minimum 1.00 LKR", Toast.LENGTH_LONG).show();
+            return;
+        }
+
         payableClient.startPayment(saleAmount, Payable.METHOD_CARD, "{ \"ORDER_TRACKING\" : \"" + scanCode + "\" }", this);
     }
 
