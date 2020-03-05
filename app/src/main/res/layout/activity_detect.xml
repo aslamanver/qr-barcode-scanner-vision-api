@@ -2,27 +2,57 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    tools:context=".MainActivity">
+    tools:context=".DetectActivity">
 
     <RelativeLayout
+        android:id="@+id/mainLayout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:animateLayoutChanges="true"
         android:orientation="vertical">
 
-        <TextureView
-            android:id="@+id/texture"
+        <SurfaceView
+            android:id="@+id/sView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_centerInParent="true"
             android:orientation="vertical" />
 
-        <include android:id="@+id/trBox" layout="@layout/track_box"/>
+        <include
+            android:id="@+id/trBox"
+            layout="@layout/track_box" />
+
+        <RelativeLayout
+            android:id="@+id/dLine"
+            android:layout_width="wrap_content"
+            android:layout_height="40dp">
+
+            <View
+                android:id="@+id/dView"
+                android:layout_width="wrap_content"
+                android:layout_height="4dp"
+                android:layout_centerInParent="true"
+                android:background="#E91E63" />
+
+            <TextView
+                android:id="@+id/dText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_above="@+id/dView"
+                android:background="#000"
+                android:paddingHorizontal="5dp"
+                android:text="Welcome"
+                android:textColor="#fff"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
 
         <RelativeLayout
             android:id="@+id/rlResult"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true">
+            android:layout_alignParentBottom="true"
+            android:visibility="gone">
 
 
             <LinearLayout

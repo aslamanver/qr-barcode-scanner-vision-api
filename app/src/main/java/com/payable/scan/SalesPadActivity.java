@@ -33,12 +33,14 @@ public class SalesPadActivity extends Activity implements PayableListener {
 
     Payable payableClient;
     private String scanCode;
+    private double scanAmount;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         scanCode = getIntent().getStringExtra("scan_code");
+        scanAmount = getIntent().getDoubleExtra("scan_amount", 0);
 
         payableClient = Payable.createPayableClient(this, "1201", "DARAZ_SCAN", "082a4663b70ef49accecee2a3101619f7006133d468e388978251f1817e5caca28c4407f7d33237b29db204bedba47954f1d115f59e4bbc2a0576425b8076f6c");
 
@@ -63,6 +65,17 @@ public class SalesPadActivity extends Activity implements PayableListener {
         });
 
         binding.title.setText(scanCode);
+
+        if(scanAmount > 0) {
+            saleAmount = scanAmount;
+            startSale();
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        finish();
     }
 
     private void startSale() {

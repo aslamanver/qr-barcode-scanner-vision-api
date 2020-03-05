@@ -1,0 +1,18 @@
+<layout xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/trackBox"
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:layout_centerInParent="true"
+        android:layout_marginHorizontal="60dp"
+        android:background="@drawable/background_border">
+
+        <RelativeLayout
+            android:id="@+id/midLine"
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#FF0000" />
+
+    </RelativeLayout>
+</layout>

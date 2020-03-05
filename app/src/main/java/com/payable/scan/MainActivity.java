@@ -90,7 +90,8 @@ public class MainActivity extends AppCompatActivity {
                 parent.addView(textureView, 0);
                 textureView.setSurfaceTexture(output.getSurfaceTexture());
                 updateTransform();
-                slideToDown();
+
+                ScanAnimLayout.slideToDown(binding.trBox.midLine);
             }
         });
 
@@ -153,74 +154,6 @@ public class MainActivity extends AppCompatActivity {
         });
 
         CameraX.bindToLifecycle(this, preview, imageCapture);
-    }
-
-    public void slideToAbove() {
-
-        Animation slide = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, -110);
-        slide.setDuration(2000);
-
-        binding.midLine.startAnimation(slide);
-
-        slide.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                binding.midLine.clearAnimation();
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-                        binding.midLine.getWidth(), binding.midLine.getHeight());
-                lp.addRule(RelativeLayout.ALIGN_PARENT_TOP);
-                binding.midLine.setLayoutParams(lp);
-
-                slideToDown();
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
-    }
-
-    public void slideToDown() {
-
-        Animation slide = new TranslateAnimation(Animation.RELATIVE_TO_SELF, 0.0f,
-                Animation.RELATIVE_TO_SELF, 0.0f, Animation.RELATIVE_TO_SELF,
-                0.0f, Animation.RELATIVE_TO_SELF, 110);
-        slide.setDuration(2000);
-
-        binding.midLine.startAnimation(slide);
-
-        slide.setAnimationListener(new Animation.AnimationListener() {
-            @Override
-            public void onAnimationStart(Animation animation) {
-
-            }
-
-            @Override
-            public void onAnimationEnd(Animation animation) {
-                binding.midLine.clearAnimation();
-                RelativeLayout.LayoutParams lp = new RelativeLayout.LayoutParams(
-                        binding.midLine.getWidth(), binding.midLine.getHeight());
-                lp.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-                binding.midLine.setLayoutParams(lp);
-
-                slideToAbove();
-            }
-
-            @Override
-            public void onAnimationRepeat(Animation animation) {
-
-            }
-        });
-
     }
 
     private void updateTransform() {
