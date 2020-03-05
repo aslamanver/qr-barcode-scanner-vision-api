@@ -36,7 +36,6 @@
             android:background="@drawable/button_bg_ripple"
             android:drawableLeft="@drawable/ic_photo_camera_black_24dp"
             android:drawablePadding="10dp"
-            android:onClick="onScan"
             android:paddingHorizontal="40dp"
             android:text="Scan QR code with amount"
             android:textColor="#fff" />

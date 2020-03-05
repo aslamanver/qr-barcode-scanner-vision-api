@@ -1,34 +1,44 @@
 package com.payable.scan;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.google.zxing.integration.android.IntentIntegrator;
 import com.google.zxing.integration.android.IntentResult;
+import com.payable.scan.databinding.ActivityZxingBinding;
+
+import java.util.Random;
 
 public class ZxingActivity extends AppCompatActivity {
 
+    ActivityZxingBinding binding;
     IntentIntegrator integrator;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_zxing);
-    }
+        binding = DataBindingUtil.setContentView(this, R.layout.activity_zxing);
+        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-    private void onScan(View view) {
+        binding.btnScan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
-        integrator = new IntentIntegrator(this);
-        integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
-        integrator.setPrompt("Scan a QR Code");
-        integrator.setCameraId(0);
-        integrator.setBeepEnabled(true);
-        integrator.setBarcodeImageEnabled(true);
-        integrator.initiateScan();
+                integrator = new IntentIntegrator(ZxingActivity.this);
+                integrator.setDesiredBarcodeFormats(IntentIntegrator.QR_CODE_TYPES);
+                integrator.setPrompt("Scan a QR Code");
+                integrator.setCameraId(0);
+                integrator.setBeepEnabled(true);
+                integrator.setBarcodeImageEnabled(true);
+                integrator.initiateScan();
+            }
+        });
     }
 
     @Override
@@ -42,7 +52,7 @@ public class ZxingActivity extends AppCompatActivity {
 
                 Intent intent = new Intent(this, SalesPadActivity.class);
                 intent.putExtra("scan_code", result.getContents());
-                intent.putExtra("scan_amount", 500.00);
+                // intent.putExtra("scan_amount", (double) new Random().nextInt(1500));
                 startActivity(intent);
             }
 
