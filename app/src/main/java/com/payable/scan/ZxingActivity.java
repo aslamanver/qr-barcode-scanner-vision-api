@@ -5,6 +5,7 @@ import androidx.databinding.DataBindingUtil;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Toast;
@@ -54,6 +55,8 @@ public class ZxingActivity extends AppCompatActivity {
                 intent.putExtra("scan_code", result.getContents());
                 // intent.putExtra("scan_amount", (double) new Random().nextInt(1500));
                 startActivity(intent);
+
+                Log.e("DarazScan", result.getContents());
             }
 
         } else {

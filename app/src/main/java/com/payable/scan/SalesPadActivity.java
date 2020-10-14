@@ -117,6 +117,10 @@ public class SalesPadActivity extends Activity implements PayableListener {
         }
     }
 
+    public void onBackClicked(View view) {
+        onBackPressed();
+    }
+
     @Override
     public boolean onPaymentStart(PayableSale payableSale) {
         return true;
