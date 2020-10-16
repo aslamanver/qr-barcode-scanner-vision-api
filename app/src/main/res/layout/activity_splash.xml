@@ -17,6 +17,8 @@
         android:text="Welcome" />
 
     <ImageView
+        android:id="@+id/payableLogo"
+        android:transitionName="payableLogo"
         android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"

@@ -33,6 +33,7 @@
         <activity
             android:name=".ZxingActivity"
             android:exported="true"
+            android:launchMode="singleInstance"
             android:theme="@style/Theme.AppCompat.NoActionBar"></activity>
         <activity
             android:name=".DetectActivity"

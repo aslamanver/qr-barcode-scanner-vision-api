@@ -25,7 +25,8 @@
             android:layout_alignParentBottom="true"
             android:layout_centerHorizontal="true"
             android:layout_marginBottom="40dp"
-            android:src="@drawable/payable_logo" />
+            android:src="@drawable/payable_logo"
+            android:transitionName="payableLogo" />
 
         <Button
             android:id="@+id/btnScan"
@@ -40,6 +41,14 @@
             android:text="Scan QR code with amount"
             android:textColor="#fff" />
 
+        <CheckBox
+            android:id="@+id/checkboxStartup"
+            android:buttonTint="@color/colorAccent"
+            android:padding="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorAccent"
+            android:text="Open scanner at startup" />
 
     </LinearLayout>
 
